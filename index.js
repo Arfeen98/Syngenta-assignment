@@ -5,6 +5,9 @@ require('dotenv').config();
 const connection=require("./config/db");
 // const passport=require("./config/google_auth");
 const OrganizationController=require("./routes/organization.routes");
+const FieldController=require("./routes/field.routes");
+const PropertyController=require("./routes/property.routes");
+const RegionController=require("./routes/region.routes");
 
 app.use(express.json());
 app.use(cors());
@@ -33,7 +36,9 @@ app.get('/',(req,res)=>{
 /***********************************************************************************/
 
 app.use("/Organization", OrganizationController);
-
+app.use("/Field", FieldController);
+app.use("/Property", PropertyController);
+app.use("/Region", RegionController);
 
 app.listen(process.env.PORT,async () => {
     try{
